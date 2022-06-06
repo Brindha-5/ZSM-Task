@@ -11,13 +11,13 @@ package exercise;
 import java.util.Scanner;
 interface PatternPrinting
 {
-    void numberPattern(int num);
-    void characterPattern(char ch);
+    void printPattern(int num);
+    void printPattern(char ch);
 }
 public class Pattern implements PatternPrinting
 {
     @Override
-    public void numberPattern(int num) {
+    public void printPattern(int num) {
         for(int i=num;i>=1;i--)
         {
             for(int j=1;j<=i;j++)
@@ -28,7 +28,7 @@ public class Pattern implements PatternPrinting
         }
     }
     @Override
-    public void characterPattern(char ch) {
+    public void printPattern(char ch) {
         int size=65,r;
         int alpha=ch;
         r=alpha-size;
@@ -42,13 +42,10 @@ public class Pattern implements PatternPrinting
             alpha--;
         }
     }
-}
-class PatternPrint
-{
-    public static void main(String[] args) {
+    public void patternDisplay()
+    {
         int num,choice;
         char ch;
-        Pattern object=new Pattern();
         Scanner ip=new Scanner(System.in);
         System.out.println("Enter the choice to display the pattern");
         System.out.println("Press 1 for Number Pattern ");
@@ -58,16 +55,22 @@ class PatternPrint
         {
             System.out.println("Enter the number to print the number pattern");
             num=ip.nextInt();
-            object.numberPattern(num);
+            printPattern(num);
         }
         else if(choice==2)
         {
             System.out.println("Enter the number to print the n pattern");
             ch=ip.next().charAt(0);
-            object.characterPattern(ch);
+            printPattern(ch);
         }
         else {
             System.out.println("Please Enter Correct Choice");
         }
+    }
+}
+class PatternPrint {
+    public static void main(String[] args) {
+        Pattern object = new Pattern();
+        object.patternDisplay();
     }
 }

@@ -42,64 +42,68 @@ public class BitwiseOperators extends BitWise{
         result=num1<<2;
         System.out.printf("\n The Right shift of %d is %d ",num1,result);
     }
-}
-class Operators
-{
-    public static void main(String[] args) {
-        int num1, num2, choice,condition=0;
-        BitwiseOperators object = new BitwiseOperators();
+    public void optionsByUsers()
+    {
+        int num1, num2, choice, condition = 0;
         Scanner ip = new Scanner(System.in);
         do {
-        System.out.println("Enter the choice to perform Activity");
-        System.out.println("1.Bitwise OR");
-        System.out.println("2.Bitwise AND");
-        System.out.println("3.Bitwise XOR");
-        System.out.println("4.Bitwise Complement");
-        System.out.println("5.Bitwise LeftShift Operator");
-        System.out.println("6.Bitwise Right Shift Operator");
-        choice = ip.nextInt();
-        switch (choice) {
-            case 1:
-                System.out.println("Enter the First Number to perform Bitwise OR");
-                num1 = ip.nextInt();
-                System.out.println("Enter the Second Number to perform Bitwise OR");
-                num2 = ip.nextInt();
-                object.bitwiseOR(num1, num2);
-                break;
-            case 2:
-                System.out.println("Enter the First Number to perform Bitwise AND");
-                num1 = ip.nextInt();
-                System.out.println("Enter the Second Number to perform Bitwise AND");
-                num2 = ip.nextInt();
-                object.bitwiseAND(num1, num2);
-                break;
-            case 3:
-                System.out.println("Enter the First Number to perform Bitwise XOR");
-                num1 = ip.nextInt();
-                System.out.println("Enter the Second Number to perform Bitwise XOR");
-                num2 = ip.nextInt();
-                object.bitwiseXOR(num1, num2);
-                break;
-            case 4:
-                System.out.println("Enter the  Number to perform Bitwise Complement");
-                num1 = ip.nextInt();
-                object.bitwiseComplement(num1);
-                break;
-            case 5:
-                System.out.println("Enter the  Number to perform Bitwise Left Shift Operation");
-                num1 = ip.nextInt();
-                object.leftShift(num1);
-                break;
-            case 6:
-                System.out.println("Enter the  Number to perform Bitwise Right Shift Operation");
-                num1 = ip.nextInt();
-                object.rightShift(num1);
-                break;
-            default:
-                System.out.println("please.. Enter the correct option");
-        }
-        System.out.println("\n Do you want to continue ..press 1 to continue");
-        condition=ip.nextInt();
-    }while(condition==1);
+            System.out.println("Enter the choice to perform Activity");
+            System.out.println("1.Bitwise OR");
+            System.out.println("2.Bitwise AND");
+            System.out.println("3.Bitwise XOR");
+            System.out.println("4.Bitwise Complement");
+            System.out.println("5.Bitwise LeftShift Operator");
+            System.out.println("6.Bitwise Right Shift Operator");
+            choice = ip.nextInt();
+            switch (choice) {
+                case 1:
+                    System.out.println("Enter the First Number to perform Bitwise OR");
+                    num1 = ip.nextInt();
+                    System.out.println("Enter the Second Number to perform Bitwise OR");
+                    num2 = ip.nextInt();
+                    bitwiseOR(num1, num2);
+                    break;
+                case 2:
+                    System.out.println("Enter the First Number to perform Bitwise AND");
+                    num1 = ip.nextInt();
+                    System.out.println("Enter the Second Number to perform Bitwise AND");
+                    num2 = ip.nextInt();
+                    bitwiseAND(num1, num2);
+                    break;
+                case 3:
+                    System.out.println("Enter the First Number to perform Bitwise XOR");
+                    num1 = ip.nextInt();
+                    System.out.println("Enter the Second Number to perform Bitwise XOR");
+                    num2 = ip.nextInt();
+                    bitwiseXOR(num1, num2);
+                    break;
+                case 4:
+                    System.out.println("Enter the  Number to perform Bitwise Complement");
+                    num1 = ip.nextInt();
+                    bitwiseComplement(num1);
+                    break;
+                case 5:
+                    System.out.println("Enter the  Number to perform Bitwise Left Shift Operation");
+                    num1 = ip.nextInt();
+                    leftShift(num1);
+                    break;
+                case 6:
+                    System.out.println("Enter the  Number to perform Bitwise Right Shift Operation");
+                    num1 = ip.nextInt();
+                    rightShift(num1);
+                    break;
+                default:
+                    System.out.println("please.. Enter the correct option");
+            }
+            System.out.println("\n Do you want to continue ..press 1 to continue");
+            condition=ip.nextInt();
+        }while(condition==1);
+    }
 }
+class Operators extends BitwiseOperators
+{
+    public static void main(String[] args) {
+        Operators ob=new Operators();
+        ob.optionsByUsers();
+    }
 }

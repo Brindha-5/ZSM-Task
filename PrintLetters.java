@@ -3,9 +3,17 @@ strings */
 package exercise;
 import java.util.Scanner;
 public class PrintLetters {
-    int unicode;
+    void startMethod()
+    {
+        char character;
+        System.out.println("Enter the UPPERCASE character to print the string");
+        Scanner ip = new Scanner(System.in);
+        character = ip.next().charAt(0);
+        calculation(character);
+    }
     void calculation(char character)
     {
+        int unicode;
         unicode=character;
         for(int i=unicode;i<=90;i++)
         {
@@ -17,11 +25,7 @@ public class PrintLetters {
 class Letters
 {
     public static void main(String[] args) {
-        char character;
-        System.out.println("Enter the UPPERCASE character to print the string");
-        Scanner ip=new Scanner(System.in);
-        character=ip.next().charAt(0);
         PrintLetters object=new PrintLetters();
-        object.calculation(character);
+        object.startMethod();
     }
 }

@@ -7,6 +7,15 @@ interface DifferenceCalculation
 }
 public class ReverseAndDifference implements DifferenceCalculation {
 int temp,reverse=0,remainder,difference;
+    void startMethod()
+    {
+        int number;
+        Scanner ip = new Scanner(System.in);
+        System.out.println("Enter the Number to Reverse and calculate the difference");
+        number = ip.nextInt();
+        toReverse(number);
+        toCalculateDifference(number);
+    }
 @Override
     public void toReverse(int number) {
         temp=number;
@@ -34,12 +43,7 @@ public void toCalculateDifference(int number)
 class Main
 {
     public static void main(String[] args) {
-        int number;
         ReverseAndDifference object=new ReverseAndDifference();
-        Scanner ip=new Scanner(System.in);
-        System.out.println("Enter the Number to Reverse and calculate the difference");
-        number=ip.nextInt();
-        object.toReverse(number);
-        object.toCalculateDifference(number);
+        object.startMethod();
     }
 }

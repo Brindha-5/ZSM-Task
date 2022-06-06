@@ -4,6 +4,14 @@ going to split them with the following logics. */
 package exercise;
 import java.util.Scanner;
 public class StudentGroup {
+    void noOfStudents()
+    {
+        int students;
+        Scanner ip=new Scanner(System.in);
+        System.out.println("Enter the no of students");
+        students=ip.nextInt();
+        studentDisplay(students);
+    }
     void studentDisplay(int students)
     {
         int rollnum=100,k;
@@ -41,11 +49,7 @@ public class StudentGroup {
 class ClassStudent
 {
     public static void main(String[] args) {
-        int students;
-        StudentGroup object=new StudentGroup();
-        Scanner ip=new Scanner(System.in);
-        System.out.println("Enter the no of students");
-        students=ip.nextInt();
-        object.studentDisplay(students);
+        StudentGroup object = new StudentGroup();
+        object.noOfStudents();
     }
 }

@@ -18,13 +18,35 @@ package exercise;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class PatternX {
+    void print()
+    {
+    int i,j,n,choice;
+    ArrayList<Integer> pattern=new ArrayList<>();
+    Scanner ip=new Scanner(System.in);
+        System.out.println("Enter the number of elements in the ArrayList");
+    n=ip.nextInt();
+        System.out.println("Enter the values");
+        for(i=0;i<n;i++)
+    {
+        pattern.add(ip.nextInt());
+    }
+        System.out.println(" Enter your choice ..press 1 for Type1 and press 2 for Type2");
+    choice=ip.nextInt();
+        if(choice==1) {
+        patternType1(pattern);
+    }
+        else {
+        patternType2(pattern);
+    }
+}
     void patternType1(ArrayList pattern) {
-        int i, j;
-        for (i = 1; i <= pattern.size(); i++) {
-            for (j = 1; j <= pattern.size(); j++) {
+        int i, j, k;
+        k = pattern.size();
+        for (i = 0; i <= pattern.size(); i++) {
+            for (j = 0; j <= pattern.size(); j++) {
                 if (i == j) {
                     System.out.print(pattern.get(i));
-                } else if (i + j == pattern.size() + 1) {
+                } else if (i + j == k - 1) {
                     System.out.print(pattern.get(i));
                 } else {
                     System.out.print(" ");
@@ -33,14 +55,14 @@ public class PatternX {
             System.out.print("\n");
         }
     }
-
     void patternType2(ArrayList pattern) {
-        int i, j;
-        for (i = 1; i <= pattern.size(); i++) {
-            for (j = 1; j <= pattern.size(); j++) {
+        int i, j,k;
+        k=pattern.size();
+        for (i = 0; i <= pattern.size(); i++) {
+            for (j = 0; j <= pattern.size(); j++) {
                 if (i == j) {
                     System.out.print(pattern.get(i));
-                } else if (i + j == (pattern.size() + 1)) {
+                } else if (i + j == (k-1)) {
                     System.out.print(pattern.get(i));
                 } else {
                     System.out.print(" ");
@@ -50,28 +72,9 @@ public class PatternX {
         }
     }
 }
-
-class XPattern
-{
+class XPattern {
     public static void main(String[] args) {
-        int i,j,n,choice;
-        ArrayList<Integer> pattern=new ArrayList<>();
-        PatternX object=new PatternX();
-        Scanner ip=new Scanner(System.in);
-        System.out.println("Enter the number of elements in the ArrayList");
-        n=ip.nextInt();
-        System.out.println("Enter the values");
-        for(i=1;i<=n;i++)
-        {
-            pattern.add(ip.nextInt());
-        }
-        System.out.println(" Enter your choice ..press 1 for Type1 and press 2 for Type2");
-        choice=ip.nextInt();
-        if(choice==1) {
-            object.patternType1(pattern);
-        }
-        else {
-            object.patternType2(pattern);
-        }
+        PatternX object = new PatternX();
+        object.print();
     }
 }
