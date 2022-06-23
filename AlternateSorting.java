@@ -1,49 +1,46 @@
-/* Alternate sorting: Given an array of integers, rearrange the array in such a way that
-the first element is first maximum and second element is first minimum.
-Example: Input : {1, 2, 3, 4, 5, 6, 7}
-Output: {7, 1, 6, 2, 5, 3, 4}*/
-package exercise;
 import java.util.*;
 public class AlternateSorting {
-    void getInput() {
-        int i, j, k, n;
-        int a[] = new int[100];
-        Scanner ip = new Scanner(System.in);
-        System.out.println("Enter the no of elements");
-        n = ip.nextInt();
-        System.out.println("Enter the elements");
-        for (i = 0; i < n; i++) {
-            a[i] = ip.nextInt();
+    public static void main(String[] args) {
+        Scanner ip=new Scanner(System.in);
+        int n;
+        int a[]=new int[15];
+        System.out.println("Enter the number of elements");
+        n=ip.nextInt();
+        System.out.println("Enter the values");
+        for(int i=0;i<n;i++)
+        {
+            a[i]=ip.nextInt();
         }
-        for (i = 0; i < n; i++) {
-            for (j = i; j < n; j++) {
-                if (a[i] > a[j]) {
-                    k = a[i];
-                    a[i] = a[j];
-                    a[j] = k;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=i+1;j<n;j++)
+            {
+                if(a[i]>a[j])
+                {
+                    int temp=a[i];
+                    a[i]=a[j];
+                    a[j]=temp;
                 }
             }
+
         }
-        System.out.println("Sorted Array");
-        for (i = 0; i < n; i++) {
-            System.out.println(a[i]);
+        int i=0;
+        int j=0;
+        int k=n;
+        n=n-1;
+        int result[]=new int[10];
+        while(i<n)
+        {
+        result[j++]=a[n--];
+        result[j++]=a[i++];
         }
-        i = 0;
-        j = n - 1;
-        System.out.println("The alternate arrangement of array");
-        while (i < j) {
-            System.out.print(a[j--] + " ");
-            System.out.print(a[i++] + " ");
+        if(n%2!=0)
+        {
+            result[j++]=a[i++];
         }
-        if (n % 2 != 0) {
-            System.out.print(a[i]);
+        for( i=0;i<k;i++)
+        {
+           System.out.println(result[i]);
         }
-    }
-}
-class Sorting extends AlternateSorting
-{
-    public static void main(String[] args) {
-        Sorting s=new Sorting();
-        s.getInput();
     }
 }
