@@ -1,26 +1,36 @@
 import java.util.*;
 public class CountAndSay {
-    public static void main(String[] args) {
-        String str="1";
-        int n,count=1;
+    void display()
+    {
         Scanner ip=new Scanner(System.in);
-        System.out.println("Enter the count");
+        String s="1";
+        int digit=0,n,count=1;
+        String newstring="";
+        System.out.println("Enter the n value");
         n=ip.nextInt();
-
-        for(int i=0;i<n;i++) {
-            int j = 0;
-            String newstring = "";
-            while (j < str.length()) {
-                count=1;
-                while (j < str.length() - 1 && str.charAt(j) == str.charAt(j + 1)) {
-                    count++;
-                    j++;
-                }
-                newstring = newstring + count + str.charAt(j);
+        for(int i=1;i<n;i++)
+        {
+           String next="";
+           int j=0;
+           while(j<s.length())
+           {
+               count=1;
+               while(j<s.length()-1&&s.charAt(j)==s.charAt(j+1))
+               {
+                count++;
                 j++;
+               }
+               next=next+count+s.charAt(j);
+               j++;
             }
-            str=newstring;
+           System.out.println(next);
+           s=next;
         }
-        System.out.println(str);
+
+    }
+
+    public static void main(String[] args) {
+        CountAndSay cs=new CountAndSay();
+        cs.display();
     }
 }
