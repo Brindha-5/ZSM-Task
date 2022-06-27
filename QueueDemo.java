@@ -1,7 +1,6 @@
 import java.util.*;
 public class QueueDemo {
-    void interviewProcess()
-    {
+    void interviewProcess()  {
         Scanner ip=new Scanner(System.in);
         System.out.println("Welcome to XYZ Technologies");
         System.out.println("Interview Process");
@@ -22,12 +21,19 @@ public class QueueDemo {
            }
            else {
                System.out.println(name + "    please wait outside the interview hall..\n Already Three Members are there");
-               if (que.size()==3) {
-                   System.out.println("_______________");
-                   System.out.println(que.poll() + " is completed his/her Interview");
-                   System.out.println(name + "  Please enter inside the waiting Hall");
-                   que.add(name);
-                   System.out.println("_____________");
+               try {
+                   Thread.sleep(3000);
+                   if (que.size() == 3) {
+                       System.out.println("_______________");
+                       System.out.println(que.poll() + " is completed his/her Interview");
+                       System.out.println(name + "  Please enter inside the waiting Hall");
+                       que.add(name);
+                       System.out.println("_____________");
+                   }
+               }
+               catch(Exception e)
+               {
+                System.out.println(e);
                }
            }
         }
