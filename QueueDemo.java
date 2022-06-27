@@ -15,13 +15,13 @@ public class QueueDemo {
         //System.out.println(que.size());
        for(int i=1;i<=number;i++)
        {
-           System.out.println("Enter Candidate name to attend whose candidate id is"+ i);
+           System.out.println("Enter Candidate name to attend whose candidate id is "+ i);
            String name=ip.next();
            if(que.size()<3) {
                que.add(name);
            }
            else {
-               System.out.println(name + "    please wait outside the interview call..\n Already Three Members are there");
+               System.out.println(name + "    please wait outside the interview hall..\n Already Three Members are there");
                if (que.size()==3) {
                    System.out.println("_______________");
                    System.out.println(que.poll() + " is completed his/her Interview");
