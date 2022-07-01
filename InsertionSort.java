@@ -1,5 +1,7 @@
-import java.util.*;
-public class BubbleSort {
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class InsertionSort {
     void toSort()
     {
         Scanner ip=new Scanner(System.in);
@@ -10,19 +12,20 @@ public class BubbleSort {
         for(int i=0;i<n;i++) {
             a[i]=ip.nextInt();
         }
-        for(int i=0;i<n;i++)
+        for(int i=1;i<n;i++)
         {
-            for(int j=1;j<n;j++)
+            int j=i;
+           while(j>0&&(a[j-1]>a[j]))
             {
-                if(a[j-1]>a[j])
-                {
-                    int temp=a[j-1];
-                    a[j-1]=a[j];
-                    a[j]=temp;
+               int temp=a[j];
+               a[j]=a[j-1];
+               a[j-1]=temp;
+               j--;
                 }
             }
 
-        }
+
+   //     System.out.println(Arrays.toString(a));
         for(int i=0;i<n;i++)
         {
             System.out.print(a[i]+" ");
@@ -31,7 +34,7 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-        BubbleSort bs=new BubbleSort();
+        InsertionSort bs=new InsertionSort();
         bs.toSort();
     }
 }

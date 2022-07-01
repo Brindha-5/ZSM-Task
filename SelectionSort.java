@@ -1,5 +1,5 @@
-import java.util.*;
-public class BubbleSort {
+import java.util.Scanner;
+public class SelectionSort {
     void toSort()
     {
         Scanner ip=new Scanner(System.in);
@@ -12,14 +12,17 @@ public class BubbleSort {
         }
         for(int i=0;i<n;i++)
         {
-            for(int j=1;j<n;j++)
+            int min=i;
+            for(int j=i+1;j<n;j++)
             {
-                if(a[j-1]>a[j])
-                {
-                    int temp=a[j-1];
-                    a[j-1]=a[j];
-                    a[j]=temp;
+                if(a[j]<a[min]) {
+                    min = j;
                 }
+            }
+            if(a[i]!=a[min]){
+                int temp=a[min];
+                a[min]=a[i];
+                a[i]=temp;
             }
 
         }
@@ -31,7 +34,7 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-        BubbleSort bs=new BubbleSort();
+        SelectionSort bs=new SelectionSort();
         bs.toSort();
     }
 }
