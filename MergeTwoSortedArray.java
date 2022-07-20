@@ -1,53 +1,60 @@
-import java.util.*;
+package tuesday_12;
+
+import java.util.Scanner;
+
 public class MergeTwoSortedArray {
-    public static void main(String[] args) {
+    void display()
+    {
         Scanner ip=new Scanner(System.in);
-        int first[]=new int[10];
-        int second[]=new int[10];
-        int result[]=new int[20];
-        int m,n,count=0;
-        System.out.println("Enter the no of elements");
-        m=ip.nextInt();
-        System.out.println("Enter the values");
-        for(int i=0;i<m;i++)
-        {
-            first[i]=ip.nextInt();
-        }
-        System.out.println("Enter the no of elements");
-        n=ip.nextInt();
-        System.out.println("Enter the values");
+        System.out.println("Enter the number of elemnts in first Array");
+        int n=ip.nextInt();
+        int a[]=new int[n];
+        System.out.println("Enter the values in first Array");
         for(int i=0;i<n;i++)
         {
-            second[i]=ip.nextInt();
+            a[i]=ip.nextInt();
         }
-        int i=0,j=0,k=0;
-        while(i<m&&j<n)
+        System.out.println("Enter the number of elemnts in second Array");
+        int m=ip.nextInt();
+        int b[]=new int[m];
+        System.out.println("Enter the values in second Array");
+        for(int i=0;i<m;i++)
         {
-            if(first[i]<second[j])
-            {
-                result[k++]=first[i++];
+            b[i]=ip.nextInt();
+        }
+int c[]=new int[m+n];
+        int k=0,i=0,j=0;
+        while(i<n&&j<m)
+        {
+            if(a[i]<b[j]) {
+                c[k++]=a[i++];
             }
-            else if(first[i]==second[j])
+            else if(a[i]==b[j])
             {
-                result[k++]=first[i++];
+                c[k++]=a[i++];
                 j++;
-                count++;
             }
-            else {
-                result[k++]=second[j++];
+            else if(a[i]>b[j])
+            {
+                c[k++]=b[j++];
             }
         }
-        while(i<m)
+        while(i<n)
         {
-          result[k++]=first[i++];
+            c[k++]=a[i++];
         }
-        while(j<n)
+        while(j<m)
         {
-            result[k++]=second[j++];
+            c[k++]=b[j++];
         }
-        for(i=0;i<m+n-count;i++)
+        for(i=0;i<k;i++)
         {
-            System.out.print(result[i]+" ");
+            System.out.print(c[i]+" ");
         }
+    }
+
+    public static void main(String[] args) {
+        MergeTwoSortedArray m=new MergeTwoSortedArray();
+        m.display();
     }
 }
